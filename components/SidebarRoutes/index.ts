@@ -1,3 +1,3 @@
 
 
-export * from './SidebarRoutes.tsx'
+export * from './SidebarRoutes'

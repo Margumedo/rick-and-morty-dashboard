@@ -1,6 +1,5 @@
-import { UserButton } from "@clerk/nextjs";
 import { CardSummary } from './components/CardSummary'
-import { BookOpenCheck, MonitorDotIcon, MonitorPlay, Rocket, UsersRound, Waypoints } from "lucide-react";
+import { MonitorPlay, Rocket, UsersRound } from "lucide-react";
 
 
 export default function Home() {
