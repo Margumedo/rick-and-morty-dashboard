@@ -17,7 +17,7 @@ export const dataGeneralSidebar = [
     },
 
     {
-        icon: Buildign2,
+        icon: Building2,
         label: "Companies",
         href: "/Companies"
     },
@@ -36,7 +36,7 @@ export const dataToolsSidebar = [
         href: "/faqs"
     },
     {
-        icon: BarChar4,
+        icon: BarChart4,
         label: "Analytics",
         href: "/analitics"
     }
@@ -49,7 +49,7 @@ export const dataSupportSidebar = [
         href: "/setting"
     },
     {
-        icon: "ShieldCheck",
+        icon: ShieldCheck,
         label: "Security",
         href: "/security"
     }
