@@ -1,7 +1,7 @@
 import { CardSummary } from './components/CardSummary'
 import { MonitorPlay, Rocket, UsersRound } from "lucide-react";
 import { LastCharacters } from './components/LastCharacters';
-import { LastEpisodes } from './components/LastEpisodes';
+// import { LastEpisodes } from './components/LastEpisodes';
 
 
 
