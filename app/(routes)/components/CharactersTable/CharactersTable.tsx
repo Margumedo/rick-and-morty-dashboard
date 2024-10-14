@@ -63,7 +63,19 @@ export const columns: ColumnDef<Character>[] = [
     {
         accessorKey: "status",
         header: "Status",
-        cell: ({ row }) => <div className="capitalize">{row.getValue("status")}</div>,
+        cell: ({ row }) => {
+            const status = row.getValue("status") as string; // Aseguramos que es un string
+            let statusColor = ""; // Default color for "Unknown"
+
+            // Cambiar el color del estado dependiendo del valor
+            if (status === "Alive") {
+                statusColor = "dark:text-green-400"; // Agregar clases dark
+            } else if (status === "Dead") {
+                statusColor = "dark:text-red-400"; // Agregar clases dark
+            }
+
+            return <div className={`capitalize ${statusColor}`}>{status}</div>;
+        },
     },
     {
         accessorKey: "species",
@@ -77,7 +89,7 @@ export const columns: ColumnDef<Character>[] = [
     },
     {
         accessorKey: "gender",
-        header: "Species",
+        header: "Gender",
         cell: ({ row }) => <div>{row.getValue("gender")}</div>,
     },
     {
@@ -158,6 +170,9 @@ export function CharactersTable() {
                         </DropdownMenuItem>
                         <DropdownMenuItem onClick={() => setFilterBy("species")}>
                             Species
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => setFilterBy("type")}>
+                            Type
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
