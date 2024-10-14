@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 import { UserButton } from "@clerk/nextjs"
 import { Menu, Search } from "lucide-react"
 import { SidebarRoutes } from "@/components/SidebarRoutes"
+import { Toggle } from '@/components/Toggle'
 
 export function Navbar() {
     return (
@@ -21,12 +22,12 @@ export function Navbar() {
                     </SheetContent>
                 </Sheet>
             </div>
-            <div className="relative w-[300px] border border-red-400">
+            <div className="relative w-[300px]">
                 <Input placeholder="Search..." className="rounded-lg" />
                 <Search strokeWidth={1} className="absolute top-2 right-2" size={22} />
             </div>
-            <div className="flex gap-x-2 items-center border border-red-400">
-                <p>ToogleTheme</p>
+            <div className="flex gap-x-4 items-center">
+                <Toggle />
                 <UserButton />
             </div>
         </div>
