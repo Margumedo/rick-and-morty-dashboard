@@ -40,13 +40,12 @@ export function SidebarRoutes() {
                             <SidebarItem item={item} key={index} />
                         ))}
                     </div>
-                    <Separator />
                 </div>
             </div>
 
             <div>
                 <div className='text-center p-6'>
-                    <Button variant='outline' className='w-full'>
+                    <Button variant='outline' className='w-full border dark:border-blue-400/50'>
                         Conocer más
                     </Button>
                 </div>

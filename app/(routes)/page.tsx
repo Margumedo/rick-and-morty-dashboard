@@ -1,5 +1,8 @@
 import { CardSummary } from './components/CardSummary'
 import { MonitorPlay, Rocket, UsersRound } from "lucide-react";
+import { LastCharacters } from './components/LastCharacters';
+import { LastEpisodes } from './components/LastEpisodes';
+
 
 
 export default function Home() {
@@ -30,7 +33,11 @@ export default function Home() {
           title="Episodios"
           tootltipText="Ver la cantidad total de episodios"
         />
+      </div>
 
+      <div className='grid grid-cols-1 mt-12 md:gap-x-20'>
+        <LastCharacters />
+        {/* <LastEpisodes /> */}
       </div>
     </div>
   );
