@@ -11,7 +11,7 @@ import { Toggle } from '@/components/Toggle'
 
 export function Navbar() {
     return (
-        <div className="flex items-center px-2 gap-x-4 md:px-6 justify-between w-full bg-background border-b h-20">
+        <nav className="flex items-center px-2 gap-x-4 md:px-6 justify-between w-full bg-background border-b h-20">
             <div className="block lg:hidden">
                 <Sheet>
                     <SheetTrigger className="flex items-center">
@@ -30,6 +30,6 @@ export function Navbar() {
                 <Toggle />
                 <UserButton />
             </div>
-        </div>
+        </nav>
     )
 }

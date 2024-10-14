@@ -7,7 +7,7 @@ import { SidebarRoutes } from "../SidebarRoutes";
 export function Sidebar() {
     return (
         <div className="h-screen">
-            <div className="">
+            <div className="flex flex-col h-full border-r">
                 <Logo />
                 <SidebarRoutes />
             </div>
