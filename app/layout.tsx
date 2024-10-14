@@ -22,12 +22,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ThemeProvider>
-      <ClerkProvider>
-        <html lang="en">
-          <body className={noto.className}>{children}</body>
-        </html>
-      </ClerkProvider>
-    </ThemeProvider>
+
+    <ClerkProvider>
+      <html lang="en">
+        <body className={noto.className}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
+
   );
 }
