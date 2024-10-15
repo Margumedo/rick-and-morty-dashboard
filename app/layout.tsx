@@ -8,6 +8,7 @@ import {
 } from '@clerk/nextjs'
 
 import { ThemeProvider } from "@/components/ThemeProvider"
+import { Toaster } from "@/components/ui/toaster";
 
 const noto = Noto_Sans_Display({ subsets: ["latin"] })
 
@@ -33,6 +34,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>

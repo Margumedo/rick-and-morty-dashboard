@@ -35,24 +35,16 @@ import {
 
 import { useCharacterStore } from "@/store/charactersStore";
 import { useEffect } from "react";
+import { CharactersTables } from "./CharactersTable.types";
+import Image from "next/image";
 
-// Definir el tipo de Character basado en la respuesta de la API
-export type Character = {
-    id: number;
-    name: string;
-    status: string;
-    species: string;
-    type: string;
-    gender: string;
-    image: string;
-};
 
-export const columns: ColumnDef<Character>[] = [
+export const columns: ColumnDef<CharactersTables>[] = [
     {
         accessorKey: "image",
         header: "Image",
         cell: ({ row }) => (
-            <img src={row.getValue("image")} alt={row.getValue("name")} className="h-16 w-16 rounded-full" />
+            <Image src={row.getValue("image")} alt={row.getValue("name")} className="h-16 w-16 rounded-full" width={60} height={60} priority />
         ),
     },
     {
@@ -64,14 +56,13 @@ export const columns: ColumnDef<Character>[] = [
         accessorKey: "status",
         header: "Status",
         cell: ({ row }) => {
-            const status = row.getValue("status") as string; // Aseguramos que es un string
-            let statusColor = ""; // Default color for "Unknown"
+            const status = row.getValue("status") as string;
+            let statusColor = "";
 
-            // Cambiar el color del estado dependiendo del valor
+
             if (status === "Alive") {
-                statusColor = "dark:text-green-400"; // Agregar clases dark
-            } else if (status === "Dead") {
-                statusColor = "dark:text-red-400"; // Agregar clases dark
+                statusColor = "dark:text-green-400";
+                statusColor = "dark:text-red-400";
             }
 
             return <div className={`capitalize ${statusColor}`}>{status}</div>;
@@ -120,7 +111,7 @@ export const columns: ColumnDef<Character>[] = [
 ];
 
 export function CharactersTable() {
-    const { characters, fetchCharacters } = useCharacterStore();
+    const { characters, fetchCharacters, } = useCharacterStore();
     const [filterValue, setFilterValue] = React.useState("");
     const [filterBy, setFilterBy] = React.useState("name"); // Inicialmente filtrar por nombre
 
@@ -133,7 +124,7 @@ export function CharactersTable() {
         data: characters,
         columns,
         onSortingChange: setSorting,
-        onColumnFiltersChange: setColumnFilters, // Corregido aquí también
+        onColumnFiltersChange: setColumnFilters,
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
         getSortedRowModel: getSortedRowModel(),
@@ -142,7 +133,7 @@ export function CharactersTable() {
         onRowSelectionChange: setRowSelection,
         state: {
             sorting,
-            columnFilters, // Colocar el filtro en el estado
+            columnFilters,
             columnVisibility,
             rowSelection,
         },
@@ -151,6 +142,11 @@ export function CharactersTable() {
     useEffect(() => {
         fetchCharacters();
     }, [fetchCharacters]);
+
+    useEffect(() => {
+        console.log("Characters after update:", characters); // Verifica si los personajes se actualizan después de agregar
+    }, [characters]);
+
 
     return (
         <div className="w-full">
@@ -251,10 +247,6 @@ export function CharactersTable() {
                 </Table>
             </div>
             <div className="flex items-center justify-end space-x-2 py-4">
-                {/* <div className="flex-1 text-sm text-muted-foreground">
-                    {table.getFilteredSelectedRowModel().rows.length} of{" "}
-                    {table.getFilteredRowModel().rows.length} row(s) selected.
-                </div> */}
                 <div className="space-x-2">
                     <Button
                         variant="outline"
