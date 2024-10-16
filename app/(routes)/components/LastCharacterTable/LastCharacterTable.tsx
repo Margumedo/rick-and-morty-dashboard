@@ -83,8 +83,8 @@ export function LastCharacterTable() {
         },
     ]);
 
-    const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
-    const [rowSelection, setRowSelection] = React.useState({});
+    const [columnVisibility] = React.useState<VisibilityState>({});
+    const [rowSelection] = React.useState({});
     const [pagination, setPagination] = React.useState<PaginationState>({
         pageIndex: 0,
         pageSize: 5,

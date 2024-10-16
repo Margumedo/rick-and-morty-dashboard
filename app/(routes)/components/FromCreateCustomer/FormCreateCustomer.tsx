@@ -31,7 +31,7 @@ import { UploadButton } from "@/utils/uploadthing"
 import { toast } from "@/hooks/use-toast"
 import { useCharacterStore } from "@/store/charactersStore"
 // import { v4 as uuidv4 } from 'uuid';
-import axios from 'axios'
+// import axios from 'axios'
 import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
@@ -102,7 +102,7 @@ export default function FormCreateCustomer(props: FormCreateCustomerProps) {
                 title: "Personaje agregado",
                 description: `El personaje ${values.name} ha sido agregado correctamente.`,
             });
-
+            router.refresh()
             setOpenModalCreate(false)
 
         } catch (error) {

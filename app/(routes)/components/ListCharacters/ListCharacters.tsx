@@ -1,6 +1,6 @@
-import { CustomIcon } from "@/components/CustomIcon";
+// import { CustomIcon } from "@/components/CustomIcon";
 import { CharactersTable } from "../CharactersTable";
-import { UsersRound } from "lucide-react";
+// import { UsersRound } from "lucide-react";
 
 
 
