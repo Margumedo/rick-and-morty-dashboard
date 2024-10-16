@@ -4,7 +4,9 @@ import { CharacterStore, addCharacter, Character } from './charactesStore.types'
 
 // Función para guardar personajes en LocalStorage
 const saveToLocalStorage = (characters: Character[]) => {
-    localStorage.setItem('characters', JSON.stringify(characters));
+    if (typeof window !== 'undefined') { // Verificar si estamos en el cliente
+        localStorage.setItem('characters', JSON.stringify(characters));
+    }
 };
 
 // Función para cargar personajes desde LocalStorage

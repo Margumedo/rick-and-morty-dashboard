@@ -65,11 +65,12 @@ export default function FormCreateCustomer(props: FormCreateCustomerProps) {
 
     const { isValid } = form.formState
 
-    const { addCharacters } = useCharacterStore();
+    const { characters, addCharacters } = useCharacterStore();
     // 2. Define a submit handler.
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            const newId = uuidv4();
+            // const newId = uuidv4();
+            const newId = characters.length + 1
 
             const newCharacter = {
                 id: newId,
