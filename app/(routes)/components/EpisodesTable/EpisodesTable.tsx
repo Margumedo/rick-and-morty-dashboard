@@ -33,58 +33,26 @@ import {
     TableRow,
 } from "@/components/ui/table";
 
-import { useCharacterStore } from "@/store/charactersStore";
 import { useEffect } from "react";
-import { CharactersTables } from "./CharactersTable.types";
-import Image from "next/image";
+import { EpisodesTableTypes } from "./EpisodesTable.types";
+import { useEpisodeStore } from "@/store/episodesStore";
 
 
-export const columns: ColumnDef<CharactersTables>[] = [
-    {
-        accessorKey: "image",
-        header: "Image",
-        cell: ({ row }) => (
-            <Image src={row.getValue("image")} alt={row.getValue("name")} className="h-16 w-16 rounded-md transform transition duration-300 ease-in-out hover:scale-110" width={60} height={60} priority />
-        ),
-    },
+export const columns: ColumnDef<EpisodesTableTypes>[] = [
     {
         accessorKey: "name",
         header: "Name",
         cell: ({ row }) => <div>{row.getValue("name")}</div>,
     },
     {
-        accessorKey: "status",
-        header: "Status",
-        cell: ({ row }) => {
-            const status = row.getValue("status") as string;
-            let statusColor = "";
-
-
-            if (status === "Alive") {
-                statusColor = "dark:text-green-400";
-            }
-
-            if (status === "Dead") {
-                statusColor = "dark:text-red-400";
-            }
-
-            return <div className={`capitalize ${statusColor}`}>{status}</div>;
-        },
+        accessorKey: "air_date",
+        header: "Air Date",
+        cell: ({ row }) => <div>{row.getValue("air_date")}</div>,
     },
     {
-        accessorKey: "species",
-        header: "Species",
-        cell: ({ row }) => <div>{row.getValue("species")}</div>,
-    },
-    {
-        accessorKey: "type",
-        header: "Type",
-        cell: ({ row }) => <div>{row.getValue("type")}</div>,
-    },
-    {
-        accessorKey: "gender",
-        header: "Gender",
-        cell: ({ row }) => <div>{row.getValue("gender")}</div>,
+        accessorKey: "episode",
+        header: "Episode",
+        cell: ({ row }) => <div>{row.getValue("episode")}</div>,
     },
     {
         id: "actions",
@@ -113,8 +81,10 @@ export const columns: ColumnDef<CharactersTables>[] = [
     },
 ];
 
-export function CharactersTable() {
-    const { characters, fetchCharacters, } = useCharacterStore();
+
+export function EpisodesTable() {
+
+    const { episodes, fetchEpisodes } = useEpisodeStore();
     const [filterValue, setFilterValue] = React.useState("");
     const [filterBy, setFilterBy] = React.useState("name"); // Inicialmente filtrar por nombre
 
@@ -124,7 +94,7 @@ export function CharactersTable() {
     const [rowSelection, setRowSelection] = React.useState({});
 
     const table = useReactTable({
-        data: characters,
+        data: episodes,
         columns,
         onSortingChange: setSorting,
         onColumnFiltersChange: setColumnFilters,
@@ -143,13 +113,12 @@ export function CharactersTable() {
     });
 
     useEffect(() => {
-        fetchCharacters();
-    }, [fetchCharacters]);
+        fetchEpisodes();
+    }, [fetchEpisodes]);
 
     useEffect(() => {
-        console.log("Characters after update:", characters); // Verifica si los personajes se actualizan después de agregar
-    }, [characters]);
-
+        console.log("Characters after update:", episodes); // Verifica si los personajes se actualizan después de agregar
+    }, [episodes]);
 
     return (
         <div className="w-full">
@@ -164,14 +133,8 @@ export function CharactersTable() {
                         <DropdownMenuItem onClick={() => setFilterBy("name")}>
                             Name
                         </DropdownMenuItem>
-                        <DropdownMenuItem onClick={() => setFilterBy("status")}>
-                            Status
-                        </DropdownMenuItem>
-                        <DropdownMenuItem onClick={() => setFilterBy("species")}>
-                            Species
-                        </DropdownMenuItem>
-                        <DropdownMenuItem onClick={() => setFilterBy("type")}>
-                            Type
+                        <DropdownMenuItem onClick={() => setFilterBy("episode")}>
+                            Espisode
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
@@ -270,5 +233,5 @@ export function CharactersTable() {
                 </div>
             </div>
         </div>
-    );
+    )
 }

@@ -1,13 +1,16 @@
 import { HeaderCharacters } from "../components/HeaderCharacters"
+import { ListCharacters } from "../components/ListCharacters"
+
+
 
 
 
 
 export default function CharactersPage() {
     return (
-        <div>
+        <div className="flex flex-col gap-y-4">
             <HeaderCharacters />
-            <p>List of Characters</p>
+            <ListCharacters />
         </div>
     )
 }

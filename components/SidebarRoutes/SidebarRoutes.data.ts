@@ -25,7 +25,7 @@ export const dataGeneralSidebar = [
     {
         icon: MonitorPlay,
         label: "Episodios",
-        href: "/episodios"
+        href: "/Episodes"
     }
 ]
 
