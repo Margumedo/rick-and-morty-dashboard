@@ -30,8 +30,6 @@ import {
 import { UploadButton } from "@/utils/uploadthing"
 import { toast } from "@/hooks/use-toast"
 import { useCharacterStore } from "@/store/charactersStore"
-// import { v4 as uuidv4 } from 'uuid';
-// import axios from 'axios'
 import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
@@ -72,22 +70,6 @@ export default function FormCreateCustomer(props: FormCreateCustomerProps) {
     // 2. Define a submit handler.
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-
-        // try {
-        //     axios.post("/api/characters", values)
-        //     toast({
-        //         title: "Personaje creado con exito",
-        //     })
-        //     router.refresh()
-        //     setOpenModalCreate(false)
-
-        // } catch (error) {
-        //     toast({
-        //         title: "Something went wrong",
-        //         variant: "destructive"
-        //     })
-        // }
-
         try {
             // const newId = uuidv4();
             const newId = characters.length + 1

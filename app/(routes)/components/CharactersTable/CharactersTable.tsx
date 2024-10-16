@@ -104,7 +104,7 @@ export const columns: ColumnDef<CharactersTables>[] = [
                         <DropdownMenuCheckboxItem
                             onClick={() => navigator.clipboard.writeText(character.id.toString())}
                         >
-                            Copy character ID
+                            Editar
                         </DropdownMenuCheckboxItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
