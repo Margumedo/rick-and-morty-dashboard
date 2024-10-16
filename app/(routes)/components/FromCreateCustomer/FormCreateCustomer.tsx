@@ -69,7 +69,7 @@ export default function FormCreateCustomer(props: FormCreateCustomerProps) {
     // 2. Define a submit handler.
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            const newId = uuidv4();
+            const newId = uuidv4().toString();
 
             const newCharacter = {
                 id: newId,
