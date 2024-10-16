@@ -19,13 +19,13 @@ export const dataGeneralSidebar = [
     {
         icon: Users,
         label: "Personajes",
-        href: "/personajes"
+        href: "/Characters"
     },
 
     {
         icon: MonitorPlay,
         label: "Episodios",
-        href: "/episodios"
+        href: "/Episodes"
     }
 ]
 

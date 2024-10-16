@@ -35,7 +35,7 @@ export default function Home() {
         />
       </div>
 
-      <div className='grid grid-cols-1 mt-12 md:gap-x-20'>
+      <div className='grid grid-cols-1 mt-12 md:grid-cols-2 md:gap-x-5 lg:gap-x-20'>
         <LastCharacters />
         {/* <LastEpisodes /> */}
       </div>
