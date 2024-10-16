@@ -10,7 +10,7 @@ export interface Character {
 }
 
 export interface addCharacter {
-    id: number;
+    id: string;
     name: string;
     status: string;
     species: string;
