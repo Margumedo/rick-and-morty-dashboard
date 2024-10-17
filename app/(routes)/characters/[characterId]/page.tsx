@@ -24,7 +24,7 @@ export default function CharacterIdPage({ params }: { params: { characterId: str
     }
 
     return (
-        <div>
+        <div className='flex flex-col gap-y-2'>
             <Header />
             <CharacterInformation character={character} />
         </div>
