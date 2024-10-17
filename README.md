@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rick and Morty Dashboard
 
-## Getting Started
+Este es un proyecto de dashboard para visualizar información de los personajes y episodios de la serie **Rick and Morty** utilizando la API pública de **Rick and Morty**. El proyecto está desarrollado utilizando **Next.js** y **Zustand** para la gestión de estado.
 
-First, run the development server:
+## Tabla de Contenidos
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Características](#características)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Despliegue](#despliegue)
+- [Tecnologías Utilizadas](#tecnologías-utilizadas)
+- [Contribución](#contribución)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Características
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Visualización de personajes de la serie **Rick and Morty**.
+- Visualización de episodios y sus detalles.
+- Filtrado de personajes por nombre, especie, género y estado.
+- Funcionalidad para agregar y editar personajes localmente.
+- Paginación para controlar la cantidad de personajes mostrados.
+- Gestión del estado de los personajes y episodios utilizando **Zustand**.
+- Conexión con la API pública de **Rick and Morty**.
+- Despliegue en **Vercel**.
 
-## Learn More
+## Instalación
 
-To learn more about Next.js, take a look at the following resources:
+1. Clona este repositorio:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone https://github.com/Margumedo/rick-and-morty-dashboard.git
+    ```
+2. Navega dentro del directorio del proyecto:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    ```bash
+    cd rick-and-morty-dashboard
+    ```
+3. Instala las dependencias necesarias:
 
-## Deploy on Vercel
+    ```bash
+    npm install
+    ```
+4. Crea un archivo .env con las siguientes variables de entorno (reemplazar por las entregadas en txt):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    ```bash
+    Ejemplo:
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_tes....
+    CLERK_SECRET_KEY=sk...
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in...
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up...
+    .
+    .
+    .
+    ```
+
+## Uso
+1. Para ejecutar el proyecto en desarrollo:
+    ```bash
+    npm run dev
+    ```
+El proyecto estará disponible en http://localhost:3000.
+Agregar o Editar Personajes
+
+En el dashboard, puedes agregar o editar personajes. Los personajes editados o creados se almacenan en el estado global utilizando Zustand, y se guardan en localStorage para persistencia.
+Funcionalidad de Filtrado
+
+Puedes filtrar personajes por:
+
+    Nombre
+    Estado (Alive, Dead, Unknown)
+    Especie
+    Género
+
+## Despliegue
+
+Este proyecto está desplegado en Vercel.
+
+## Tecnologías Utilizadas
+
+    Next.js - Framework de React para aplicaciones web.
+    Zustand - Biblioteca de gestión de estado simple y rápida.
+    Prisma - ORM para bases de datos.
+    Tailwind CSS - Utilizado para el estilo y diseño del proyecto.
+    API de Rick and Morty - Para obtener los datos de los personajes y episodios.
+    Vercel - Plataforma de despliegue para aplicaciones de frontend.
+
+## Contribución
+
+Las contribuciones son bienvenidas. Si deseas contribuir, por favor sigue los siguientes pasos:
+
+    Haz un fork del proyecto.
+    Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
+    Haz commit de tus cambios (git commit -m 'Agrega nueva funcionalidad').
+    Haz push a la rama (git push origin feature/nueva-funcionalidad).
+    Abre un Pull Request.
