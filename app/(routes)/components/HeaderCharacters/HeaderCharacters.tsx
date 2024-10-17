@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog"
 
 import { useState } from "react";
-import FromCreateCustomer from "../FromCreateCustomer/FormCreateCustomer";
+import FromCreateCustomer from "../FormCreateCharacter/FormCreateCharacter";
 import { UsersRound } from "lucide-react";
 import { CustomIcon } from "@/components/CustomIcon";
 

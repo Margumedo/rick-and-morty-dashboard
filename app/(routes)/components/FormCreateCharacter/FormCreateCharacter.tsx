@@ -16,7 +16,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { FormCreateCustomerProps } from "./FormCreateCustomer.types"
+import { FormCreateCustomerProps } from "./FormCreateCharacter.types"
 import { useState } from "react"
 
 import {
@@ -30,8 +30,6 @@ import {
 import { UploadButton } from "@/utils/uploadthing"
 import { toast } from "@/hooks/use-toast"
 import { useCharacterStore } from "@/store/charactersStore"
-// import { v4 as uuidv4 } from 'uuid';
-// import axios from 'axios'
 import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
@@ -47,7 +45,7 @@ const formSchema = z.object({
 
 
 
-export default function FormCreateCustomer(props: FormCreateCustomerProps) {
+export default function FormCreateCharacter(props: FormCreateCustomerProps) {
 
     const { setOpenModalCreate } = props
     const [photoUploaded, setPhotoUploaded] = useState(false)
@@ -69,27 +67,10 @@ export default function FormCreateCustomer(props: FormCreateCustomerProps) {
 
     const { characters, addCharacters } = useCharacterStore();
     const router = useRouter();
+
     // 2. Define a submit handler.
-
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-
-        // try {
-        //     axios.post("/api/characters", values)
-        //     toast({
-        //         title: "Personaje creado con exito",
-        //     })
-        //     router.refresh()
-        //     setOpenModalCreate(false)
-
-        // } catch (error) {
-        //     toast({
-        //         title: "Something went wrong",
-        //         variant: "destructive"
-        //     })
-        // }
-
         try {
-            // const newId = uuidv4();
             const newId = characters.length + 1
 
             const newCharacter = {
@@ -107,8 +88,6 @@ export default function FormCreateCustomer(props: FormCreateCustomerProps) {
 
         } catch (error) {
             console.error("Error al agregar personaje:", error);
-
-            // Feedback de error al usuario
             toast({
                 title: "Error",
                 description: "Hubo un problema al agregar el personaje.",

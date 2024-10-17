@@ -72,7 +72,7 @@ export const columns: ColumnDef<EpisodesTableTypes>[] = [
                         <DropdownMenuCheckboxItem
                             onClick={() => navigator.clipboard.writeText(character.id.toString())}
                         >
-                            Copy character ID
+                            Editar
                         </DropdownMenuCheckboxItem>
                     </DropdownMenuContent>
                 </DropdownMenu>

@@ -13,7 +13,7 @@ import {
     getSortedRowModel,
     useReactTable,
 } from "@tanstack/react-table";
-import { ChevronDown, MoreHorizontal } from "lucide-react";
+import { ChevronDown, MoreHorizontal, Pencil } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -37,6 +37,7 @@ import { useCharacterStore } from "@/store/charactersStore";
 import { useEffect } from "react";
 import { CharactersTables } from "./CharactersTable.types";
 import Image from "next/image";
+import Link from "next/link";
 
 
 export const columns: ColumnDef<CharactersTables>[] = [
@@ -88,10 +89,11 @@ export const columns: ColumnDef<CharactersTables>[] = [
     },
     {
         id: "actions",
+        header: "Actions",
         enableHiding: false,
         cell: ({ row }) => {
-            const character = row.original;
-
+            // const character = row.original;
+            const { id } = row.original;
             return (
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -101,11 +103,14 @@ export const columns: ColumnDef<CharactersTables>[] = [
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                        <DropdownMenuCheckboxItem
-                            onClick={() => navigator.clipboard.writeText(character.id.toString())}
-                        >
-                            Copy character ID
-                        </DropdownMenuCheckboxItem>
+                        <Link href={`/characters/${id}`}>
+                            <DropdownMenuItem
+                            // onClick={() => navigator.clipboard.writeText(character.id.toString())}
+                            >
+                                <Pencil className="w-4 h-4 mr-2" />
+                                Editar
+                            </DropdownMenuItem>
+                        </Link>
                     </DropdownMenuContent>
                 </DropdownMenu>
             );
