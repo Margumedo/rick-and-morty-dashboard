@@ -24,5 +24,6 @@ export interface CharacterStore {
     isLoading: boolean;
     error: string | null;
     fetchCharacters: () => Promise<void>;
-    addCharacters: (newCharacter: addCharacter) => void
+    addCharacters: (newCharacter: addCharacter) => void;
+    editCharacters: (updatedCharacter: addCharacter) => void;
 }

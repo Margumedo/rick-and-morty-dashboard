@@ -16,7 +16,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { FormCreateCustomerProps } from "./FormCreateCustomer.types"
+import { FormCreateCustomerProps } from "./FormCreateCharacter.types"
 import { useState } from "react"
 
 import {
@@ -45,7 +45,7 @@ const formSchema = z.object({
 
 
 
-export default function FormCreateCustomer(props: FormCreateCustomerProps) {
+export default function FormCreateCharacter(props: FormCreateCustomerProps) {
 
     const { setOpenModalCreate } = props
     const [photoUploaded, setPhotoUploaded] = useState(false)
@@ -67,11 +67,10 @@ export default function FormCreateCustomer(props: FormCreateCustomerProps) {
 
     const { characters, addCharacters } = useCharacterStore();
     const router = useRouter();
-    // 2. Define a submit handler.
 
+    // 2. Define a submit handler.
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            // const newId = uuidv4();
             const newId = characters.length + 1
 
             const newCharacter = {
@@ -89,8 +88,6 @@ export default function FormCreateCustomer(props: FormCreateCustomerProps) {
 
         } catch (error) {
             console.error("Error al agregar personaje:", error);
-
-            // Feedback de error al usuario
             toast({
                 title: "Error",
                 description: "Hubo un problema al agregar el personaje.",
