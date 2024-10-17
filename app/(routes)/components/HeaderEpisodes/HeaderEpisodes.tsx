@@ -11,13 +11,13 @@ import {
 } from "@/components/ui/dialog"
 
 import { useState } from "react";
-import FromCreateCustomer from "../FromCreateCustomer/FormCreateCustomer";
 import { UsersRound } from "lucide-react";
 import { CustomIcon } from "@/components/CustomIcon";
 
 
 
 import React from 'react'
+import FormCreateEpisode from "../FormCreateEpisode/FormCreateEpisode";
 
 export function HeaderEpisodes() {
     const [openModalCreate, setOpenModalCreate] = useState(false)
@@ -38,8 +38,7 @@ export function HeaderEpisodes() {
                         <DialogTitle>Crear un Episodio</DialogTitle>
                         <DialogDescription>Crear una aventura</DialogDescription>
                     </DialogHeader>
-
-                    <FromCreateCustomer setOpenModalCreate={setOpenModalCreate} />
+                    <FormCreateEpisode setOpenModalCreate={setOpenModalCreate} />
                 </DialogContent>
             </Dialog>
 
