@@ -7,7 +7,7 @@ import { CharacterForm } from "../CharacterForm/CharacterForm";
 export function CharacterInformation(props: CharacterInformationTypes) {
 
     const { character } = props
-    const { name, status, type, gender, species, image } = props.character
+    const { image } = character
 
 
     return (

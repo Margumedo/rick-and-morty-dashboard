@@ -17,17 +17,6 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { FormCreateEpisodeProps } from "./FormCreateEpisode.types"
-import { useState } from "react"
-
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
-import { UploadButton } from "@/utils/uploadthing"
 import { toast } from "@/hooks/use-toast"
 import { useEpisodeStore } from "@/store/episodesStore"
 import { useRouter } from "next/navigation"

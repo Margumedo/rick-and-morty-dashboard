@@ -13,9 +13,9 @@ export default function CharacterIdPage({ params }: { params: { characterId: str
 
     const { userId } = useAuth();
 
-    if (!userId) return redirect('/');
-
     const { characters } = useCharacterStore();
+
+    if (!userId) return redirect('/');
 
     const character = characters.find(item => item.id === characterId);
 
